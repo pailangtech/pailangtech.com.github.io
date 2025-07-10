@@ -1,0 +1,126 @@
+// JavaScript Document
+
+// JavaScript Document
+
+
+function goTop() {
+	$('html,body').animate({
+		'scrollTop': 0
+	}, 600); //婊氬洖椤堕儴鐨勬椂闂达紝瓒婂皬婊氱殑閫熷害瓒婂揩~
+}
+
+
+// $(document).ready(function(){
+//     $(document).bind("contextmenu",function(e){
+//         return false;
+//     });
+// });
+
+
+
+
+$(function() {
+	$(".where em:nth-child(1)").click(function() {
+		console.log($("#menu1").offset())
+		$('html,body').animate({ scrollTop: $("#menu1").offset().top - 8 }, 200)
+	});
+});
+
+$(function() {
+	$(".where em:nth-child(2)").click(function() {
+		$("html , body").animate({
+			scrollTop: $("#menu2").offset().top
+		}, );
+	});
+});
+$(function() {
+	$(".where em:nth-child(3)").click(function() {
+		$("html , body").animate({
+			scrollTop: $("#menu3").offset().top
+		}, );
+	});
+});
+
+$(function() {
+
+	
+
+	$('.wap_nav_sw li').click(function() {
+		$(this).toggleClass("active");
+		$(this).siblings().removeClass("active");
+	});
+
+
+  $('#quote .tow p b').click(function() {
+  		$(this).parent().parent().toggleClass("cur");
+		  event.stopPropagation();   
+  	});
+	
+	$('#quote .tow .span i').click(function() {
+			$(this).parent().parent().toggleClass("cur");
+		});
+	$('body').click(function() {
+			$("#quote .tow p").removeClass("cur");
+			  event.stopPropagation();   
+		});
+	
+
+	// 手机导航点击
+
+	$(".wap_nav").click(function() {
+		$("body").toggleClass("fix");
+		$(".wap_nav span:nth-child(1)").toggleClass("first-rotate");
+		$(".wap_nav span:nth-child(2)").toggleClass("mid-width");
+		$(".wap_nav span:nth-child(3)").toggleClass("last-rotate");
+		$(".wap_nav_sw").toggleClass("header-show");
+	});
+
+
+$(".wap_nav_sw li dd a").click(function() {
+		$("body").toggleClass("fix");
+		$(".wap_nav span:nth-child(1)").toggleClass("first-rotate");
+		$(".wap_nav span:nth-child(2)").toggleClass("mid-width");
+		$(".wap_nav span:nth-child(3)").toggleClass("last-rotate");
+		$(".wap_nav_sw").toggleClass("header-show");
+	});
+
+
+
+	$('.home_one .ck_ck em').hover(function() {
+		$(this).addClass("cur");
+		$(this).siblings().removeClass("cur");
+		var index = $(this).index();
+		$(".home_one .one.flex").removeClass("cur");
+		$(".home_one .one.flex").eq(index).addClass("cur");
+	});
+
+
+
+	$(function() {
+		var nav = $(".header"); //寰楀埌瀵艰埅瀵硅薄
+		var cc = $(".header").height(); //寰楀埌瀵艰埅瀵硅薄
+		var win = $(window); //寰楀埌绐楀彛瀵硅薄
+		var sc = $(document); //寰楀埌document鏂囨。瀵硅薄銆�
+		win.scroll(function() {
+			if (sc.scrollTop() >= cc) {
+				nav.addClass("fix");
+			} else {
+				nav.removeClass("fix");
+			}
+		});
+	});
+
+});
+
+
+
+
+var documentElement = document.documentElement;
+
+function callback() {
+	var clientWidth = documentElement.clientWidth;
+	// 屏幕宽度大于780，不在放大
+	clientWidth = clientWidth < 640 ? 640 : clientWidth;
+	documentElement.style.fontSize = clientWidth / 10 + 'px';
+}
+document.addEventListener('DOMContentLoaded', callback);
